@@ -51,6 +51,9 @@ public class DbUsers {
     }
 
     public static String getUsersByAge(int min, int max) {
+        if (min >= max) {
+            return "Min value must be less then max value";
+        }
         return getAllFromUsers(String.format("WHERE (age > %d) and (age < %d)", min, max));
     }
 
